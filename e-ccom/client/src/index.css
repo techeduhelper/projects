@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,400;1,500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* font-family: 'Poppins', sans-serif; */
+
+.navbar {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+.nav-link {
+  color: white;
+}
+.active {
+  color: yellow !important ;
+  border-bottom: 1px solid gray;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+.container-fluid > a {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+}
+.container-fluid > a:focus,
+.container-fluid > a:hover {
+  text-decoration: none;
+}
+
+/* for footer */
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 768px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.footer-menu {
+  display: flex;
+  gap: 1rem;
+}
+.footer-menu > a {
+  color: white;
+  text-decoration: none;
+  padding: 0.4rem;
+}
+.footer-menu > a:hover {
+  opacity: 0.6 !important;
+  color: white;
+}
+
+/* page not found page */
+
+.page-not-found {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+.pnf-subheading {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.pnf-button {
+  padding: 0.5rem;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+/* contact page  */
+
+.contact-image {
+  width: 100%;
+  height: 100%;
+}
+.contact-details {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.contact-details > span {
+  text-align: left;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.con-heading {
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 2rem;
+  background-color: black;
+  color: white;
+  text-align: left;
+  padding: 1rem;
+}
+
+/* ====================================
+===========register form */
+
+.register-form {
+  flex-direction: column;
+  margin: auto;
+  margin-top: 3rem;
+  align-items: center;
+  width: 60%;
+  padding: 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background: rgb(251, 63, 63);
+  background: linear-gradient(
+    90deg,
+    rgba(251, 63, 63, 1) 0%,
+    rgba(71, 252, 70, 0.9949229691876751) 100%
+  );
+  background-size: cover;
+  border-radius: 0.5rem;
+  background-repeat: no-repeat;
+}
+
+.register-outer {
+  padding-top: 5rem;
+  background-image: url("./assets/login.jpg");
+  opacity: 80%;
+  margin: auto;
+  background-size: cover;
+  height: 90vh;
+  background-repeat: no-repeat;
+}
+
+/* =====Login form+======= */
+
+.login-form {
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  width: 60%;
+  padding: 1rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background: rgb(251, 63, 63);
+  background: linear-gradient(
+    90deg,
+    rgba(251, 63, 63, 1) 0%,
+    rgba(71, 252, 70, 0.9949229691876751) 100%
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.login-outer {
+  padding-top: 5rem;
+  background-image: url("./assets/login.jpg");
+  opacity: 80%;
+  margin: auto;
+  background-size: cover;
+  height: 90vh;
+  background-repeat: no-repeat;
+}
+
+.Login-heading {
+  color: black;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+.login-btn {
+  text-align: center;
+}
