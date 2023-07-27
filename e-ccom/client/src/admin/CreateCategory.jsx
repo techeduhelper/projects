@@ -4,14 +4,14 @@ import AdminMenu from "../components/layout/AdminMenu";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useAuth } from "../context/auth.jsx";
-
+ 
 const CreateCategory = () => {
   const [auth] = useAuth();
   const [categories, setCategories] = useState([]);
 
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get('/api/v1/category/get-category');
+      const { data } = await axios.get("/api/v1/category/get-category");
       if (data.success) {
         setCategories(data.category);
       }
