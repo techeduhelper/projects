@@ -18,7 +18,7 @@ const Contact = () => {
           <span className="con-heading">Contact us</span>
           <span>{descp}</span>
           <span>
-            <MdEmail />: ecomm@support.com{" "}
+            <MdEmail />: comixgrid@support.com{" "}
           </span>
           <span>
             <FiHeadphones />: 1800-0000-0000(Toll-free)

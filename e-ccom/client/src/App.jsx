@@ -18,12 +18,20 @@ import Analytics from "./admin/Analytics";
 import Promotions from "./admin/Promotions";
 import Orders from "./user/Orders";
 import Profile from "./user/Profile";
+import Products from "./admin/Products";
+import UpdateProduct from "./admin/UpdateProduct";
+import FrontProducts from "./pages/FrontProducts";
+import AllProducts from "./pages/AllProducts";
+import Search from "./pages/Search";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/products" element={<AllProducts />} />
+        <Route path="/product/:slug" element={<FrontProducts />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forget-password" element={<ForgotPassword />} />
         <Route path="/dashboard" element={<PrivateRoute />}>
@@ -36,6 +44,8 @@ function App() {
           <Route path="admin/create-category" element={<CreateCategory />} />
           <Route path="admin/create-product" element={<CreateProduct />} />
           <Route path="admin/users" element={<Users />} />
+          <Route path="admin/products" element={<Products />} />
+          <Route path="admin/product/:slug" element={<UpdateProduct />} />
           <Route path="admin/analytics" element={<Analytics />} />
           <Route path="admin/promotions" element={<Promotions />} />
         </Route>

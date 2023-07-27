@@ -4,6 +4,7 @@ import { HiShoppingBag } from "react-icons/hi";
 import { useAuth } from "../context/auth.jsx";
 import { toast } from "react-toastify";
 import { MdAccountCircle } from "react-icons/md";
+import SearchInput from "../admin/Form/SearchInput.jsx";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
@@ -42,6 +43,7 @@ const Header = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <SearchInput />
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <NavLink className="nav-link" to="/">
@@ -50,7 +52,7 @@ const Header = () => {
               </li>
               <li className="nav-item">
                 <NavLink className="nav-link" to="/products">
-                  Products
+                  Shop
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -77,7 +79,7 @@ const Header = () => {
                     <button
                       style={{
                         boxShadow: "rgba(0, 0, 0, 0.1) 0px 10px 50px",
-                        backgroundColor: "yellow",
+                        backgroundColor: "greenyellow",
                         fontWeight: "500",
                         borderRadius: "5px",
                         padding: "0.5rem",

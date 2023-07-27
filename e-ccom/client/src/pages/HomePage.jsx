@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "./../components/layout/Layout";
-import { useAuth } from "../context/auth.jsx";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import HomeCarosel from "./HomeCarosel";
 
 const HomePage = () => {
-  const [auth, setAuth] = useAuth();
-
   return (
-    <Layout>
-      <h1 className="text-4xl font-bold">Home Page</h1>
-      <pre>{JSON.stringify(auth, null, 4)}</pre>
+    <Layout title={"Home -best offers for you"}>
+      <div className="row container-fluid mt-3">
+        <HomeCarosel />
+      </div>
     </Layout>
   );
 };

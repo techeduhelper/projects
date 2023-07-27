@@ -34,7 +34,10 @@ const ForgotPassword = () => {
     <>
       <Layout>
         <div className="login-outer">
-          <form className="login-form" onSubmit={handleLogin}>
+          <form
+            className="login-form col-md-4 d-flex itmes-center"
+            onSubmit={handleLogin}
+          >
             <h2 className="Login-heading">Hey! Reset your Password</h2>
             <div className="mb-3 p">
               <label htmlFor="exampleInputEmail1" className="form-label">

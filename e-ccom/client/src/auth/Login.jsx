@@ -39,10 +39,13 @@ const Login = () => {
   return (
     <Layout>
       <div className="login-outer">
-        <form className="login-form" onSubmit={handleLogin}>
+        <form
+          className="login-form col-md-4 d-flex itmes-center"
+          onSubmit={handleLogin}
+        >
           <h1 className="Login-heading ">Login Here</h1>
           <hr />
-          <div className="mb-3 p">
+          <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
               Email address
             </label>
@@ -80,7 +83,7 @@ const Login = () => {
           >
             Forgot Password
           </div>
-          <button type="submit" className="login-btn btn btn-success">
+          <button type="submit" className="login-btn btn-btn-danger mt-2">
             Log in
           </button>
         </form>

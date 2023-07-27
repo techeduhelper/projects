@@ -36,8 +36,15 @@
 .container-fluid > a:hover {
   text-decoration: none;
 }
+main {
+  min-height: 87vh;
+  width: 100vw;
+}
 
 /* for footer */
+footer {
+  margin-top: auto;
+}
 
 .footer {
   display: flex;
@@ -57,7 +64,7 @@
   gap: 1rem;
 }
 .footer-menu > a {
-  color: white;
+  color: black;
   text-decoration: none;
   padding: 0.4rem;
 }
@@ -124,20 +131,14 @@
 .register-form {
   flex-direction: column;
   margin: auto;
-  margin-top: 3rem;
-  align-items: center;
-  width: 60%;
-  padding: 1rem;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  background: rgb(251, 63, 63);
-  background: linear-gradient(
-    90deg,
-    rgba(251, 63, 63, 1) 0%,
-    rgba(71, 252, 70, 0.9949229691876751) 100%
-  );
+  padding: 2rem;
   background-size: cover;
-  border-radius: 0.5rem;
   background-repeat: no-repeat;
+  border-radius: 0.5rem;
+  color: black;
+  border-radius: 10px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
 
 .register-outer {
@@ -155,20 +156,14 @@
 .login-form {
   flex-direction: column;
   margin: auto;
-  align-items: center;
-  width: 60%;
-  padding: 1rem;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  background: rgb(251, 63, 63);
-  background: linear-gradient(
-    90deg,
-    rgba(251, 63, 63, 1) 0%,
-    rgba(71, 252, 70, 0.9949229691876751) 100%
-  );
+  padding: 2rem;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 0.5rem;
-  color: white;
+  color: black;
+  border-radius: 10px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
 
 .login-outer {
@@ -186,6 +181,66 @@
   text-align: center;
   font-family: "Poppins", sans-serif;
 }
+
 .login-btn {
-  text-align: center;
+  position: relative;
+  font-size: 1.2em;
+  padding: 0.7em 1.4em;
+  background-color: #bf0426;
+  text-decoration: none;
+  border: none;
+  border-radius: 0.5em;
+  color: #dedede;
+  -webkit-box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.3);
+  box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.3);
+}
+
+.login-btn::before {
+  position: absolute;
+  content: "";
+  height: 0;
+  width: 0;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(33, 33, 33, 1) 0%,
+    rgba(33, 33, 33, 1) 50%,
+    rgba(150, 4, 31, 1) 50%,
+    rgba(191, 4, 38, 1) 60%
+  );
+  border-radius: 0 0 0.5em 0;
+  -webkit-box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
+  box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.login-btn:hover::before {
+  width: 1.6em;
+  height: 1.6em;
+}
+
+.login-btn:active {
+  -webkit-box-shadow: 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.3);
+  box-shadow: 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.3);
+  -webkit-transform: translate(0.1em, 0.1em);
+  -ms-transform: translate(0.1em, 0.1em);
+  transform: translate(0.1em, 0.1em);
+}
+
+/* single product page */
+
+.product-photo {
+  height: auto;
+  padding: 5rem 0 5rem 0;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  /* margin-top: 3rem; */
+}
+.product-photo > img {
+  height: 20rem;
+}
+.product-container {
+  margin-top: 5rem;
+  display: flex;
 }

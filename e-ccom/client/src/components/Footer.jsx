@@ -6,16 +6,14 @@ const Footer = () => {
     <>
       <div
         style={{
-          backgroundColor: "green",
-          position: "absolute",
-          bottom: "0",
-          left: "0",
-          right: "0",
+          background:
+            "linear-gradient(90deg, rgba(251,157,63,1) 0%, rgba(82,67,165,1) 54%, rgba(110,252,70,0.9949229691876751) 100%)",
+          marginTop: "auto",
           padding: "0 5px 0 5px",
         }}
         className="footer"
       >
-        <span style={{ color: "white" }}>All rights Reserved @ComixGrid</span>
+        <span style={{ color: "black" }}>All rights Reserved @ComixGrid</span>
 
         <div className="footer-menu ">
           <Link to="/about">About</Link>

@@ -4,8 +4,6 @@ import slugify from 'slugify'
 
 
 
-
-
 export const createProductController = async (req, res) => {
     try {
         const { name, price, description, slug, category, quantity, shipping } = req.fields
@@ -161,6 +159,116 @@ export const updateProductController = async (req, res) => {
         res.status(500).send({
             success: false,
             message: error?.message || 'Internal Server Error'
+        })
+    }
+};
+
+
+// Product filter 
+
+export const productFilterController = async (req, res) => {
+    try {
+        const { checked, radio } = req.body;
+        let args = {};
+        if (checked.length > 0) args.category = checked;
+        if (radio.length) args.price = { $gta: radio[0], $lta: radio[1] };
+        const products = await productModels.find(args)
+        res.status(200).send({
+            success: true,
+            message: 'product successfully filtered',
+            products,
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(403).json("Error in fetching data"),
+            error
+    }
+}
+
+
+// product count
+
+export const productCountController = async (req, res) => {
+    try {
+        const total = await productModels.find({}).estimatedDocumentCount()
+        res.status(200).send({
+            success: true,
+            message: 'successfully fetched the number of documents.',
+            total
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(404).send({
+            success: false,
+            message: 'something went wrong!',
+            error
+        })
+    }
+}
+
+
+// product per page controller
+export const productPerPageController = async (req, res) => {
+    try {
+        const perPage = 6;
+        const page = req.params.page ? req.params.page : 1
+        const products = await productModels.find({}).select("-photo").skip((page - 1) * perPage).limit(perPage).sort({ createdAt: -1 });
+        res.status(200).send({
+            success: true,
+            message: 'success',
+            products
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(400).send({
+            success: false,
+            message: 'missing required fields or invalid input type',
+            error
+        })
+    }
+}
+
+
+export const searchProductController = async (req, res) => {
+    try {
+        const { keyword } = req.params
+        const results = await productModels.find({
+            $or: [
+                { name: { $regex: keyword, $options: 'i' } },
+                { description: { $regex: keyword, $options: 'i' } },
+            ]
+        }).select("-photo");
+        res.status(200).json(results)
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({
+            success: false,
+            message: 'server error',
+            error
+        })
+    }
+}
+
+
+// similar products 
+
+export const similarProductController = async (req, res) => {
+    try {
+        const { pid, cid } = req.params
+        const products = await productModel.find({
+            category: cid,
+            _id: { $ne: pid }
+        }).select("-photo").limit(4).populate("category")
+        res.status(200).send({
+            success: true,
+            products,
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({
+            success: false,
+            message: 'similar prodcuts not found.',
+            error
         })
     }
 }

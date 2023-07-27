@@ -69,8 +69,7 @@ export const updateCategoryController = async (req, res) => {
 
 export const getAllCategoriesController = async (req, res) => {
     try {
-        const categories = await categoryModels.find();
-        if (!categories || !Array.isArray(categories)) throw new Error("No Categories Found");
+        const categories = await categoryModels.find({});
         return res.status(200).send({
             success: true,
             message: 'All categories list',

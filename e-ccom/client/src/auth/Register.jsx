@@ -41,10 +41,13 @@ const Register = () => {
     <>
       <Layout>
         <div className="register-outer">
-          <form className="register-form" onSubmit={handleSubmit}>
+          <form
+            className="register-form col-md-4 d-flex itmes-center"
+            onSubmit={handleSubmit}
+          >
             <h1 className="text-center">Register Here</h1>
 
-            <div className="mb-3">
+            <div className="mb-3 mt-3">
               <input
                 type="text"
                 value={name}
@@ -114,11 +117,10 @@ const Register = () => {
                 placeholder="your favourite pet name?"
               />
             </div>
-            <div>
-              <button type="submit" className="text-center btn btn-primary">
-                Register
-              </button>
-            </div>
+
+            <button type="submit" className="login-btn btn btn-danger mt-2">
+              Register
+            </button>
           </form>
         </div>
       </Layout>
