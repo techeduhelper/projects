@@ -64,10 +64,10 @@ const CreateProduct = () => {
         productData
       );
       if (data?.success) {
-        toast.error(data?.message);
-      } else {
         navigate("/dashboard/admin/products");
         getAllProducts();
+      } else {
+        toast.error(data?.message);
       }
     } catch (error) {
       console.log(error);

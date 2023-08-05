@@ -5,10 +5,12 @@ import { useAuth } from "../context/auth.jsx";
 import { toast } from "react-toastify";
 import { MdAccountCircle } from "react-icons/md";
 import SearchInput from "../admin/Form/SearchInput.jsx";
+import { useCart } from "../context/cart.jsx";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
-
+  const [cart] = useCart();
   const handleLogout = () => {
     setAuth({
       ...auth,
@@ -29,7 +31,8 @@ const Header = () => {
       >
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            <HiShoppingBag /> ComixGrid
+            <HiShoppingBag style={{ fontSize: "2rem" }} />
+            ComixGrid
           </Link>
           <button
             className="navbar-toggler"
@@ -44,7 +47,7 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <SearchInput />
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 d-flex gap-3">
               <li className="nav-item">
                 <NavLink className="nav-link" to="/">
                   Home
@@ -55,11 +58,7 @@ const Header = () => {
                   Shop
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/category">
-                  Category
-                </NavLink>
-              </li>
+
               {!auth.user ? (
                 <>
                   <li className="nav-item">
@@ -122,8 +121,14 @@ const Header = () => {
                 </>
               )}
               <li className="nav-item">
-                <NavLink className="nav-link" to="/cart">
-                  Cart (0)
+                <NavLink className="btn btn-danger" to="/cart">
+                  <FaShoppingCart style={{ fontSize: "1.5rem" }} />
+                  <span
+                    class="badge badge-light"
+                    style={{ fontSize: "1.2rem" }}
+                  >
+                    {cart?.length}
+                  </span>
                 </NavLink>
               </li>
             </ul>

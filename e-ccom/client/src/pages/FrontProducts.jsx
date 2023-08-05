@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/layout/Layout";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { useCart } from "../context/cart";
+import { toast } from "react-toastify";
 
 const FrontProducts = () => {
   const [categories, setCategories] = useState([]);
@@ -16,6 +18,7 @@ const FrontProducts = () => {
   const navigate = useNavigate();
   const params = useParams();
   const [similarProducts, setSimilarProducts] = useState([]);
+  const [cart, setCart] = useCart();
 
   // get Single Product
   const getSingleProduct = async () => {
@@ -72,7 +75,16 @@ const FrontProducts = () => {
             {description}
           </p>
           <hr />
-          <button className="btn btn-outline-danger">Add to cart</button>
+          <button
+            className="btn btn-outline-danger"
+            onClick={() => {
+              setCart([...cart, id]);
+              localStorage.setItem("cart", JSON.stringify([...cart, id]));
+              toast.success("Item Added to Cart");
+            }}
+          >
+            Add to cart
+          </button>
         </div>
         <div className="col-md-12">{JSON.stringify(similarProducts)}</div>
       </div>

@@ -20,14 +20,14 @@ const SearchInput = () => {
   };
 
   return (
-    <div>
+    <div className="m-1">
       <form
         className="d-flex items-center"
         role="search"
         onSubmit={handleSearch}
       >
         <input
-          className="form-control me-2"
+          className="form-control me-2 w-100"
           type="search"
           placeholder="Search products"
           aria-label="Search"

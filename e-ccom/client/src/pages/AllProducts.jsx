@@ -3,6 +3,8 @@ import Layout from "./../components/layout/Layout";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Prices } from "./PriceFilter";
+import { useCart } from "../context/cart";
+import { toast } from "react-toastify";
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -12,6 +14,7 @@ const AllProducts = () => {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState();
+  const [cart, setCart] = useCart();
   // get total count
   const getTotal = async () => {
     try {
@@ -196,7 +199,17 @@ const AllProducts = () => {
                 </div>
                 <div className="btn-container d-flex justify-content-between mb-3">
                   <button className="btn btn-outline-success">Buy Now</button>
-                  <button className="btn btn-outline-danger">
+                  <button
+                    className="btn btn-outline-danger"
+                    onClick={() => {
+                      setCart([...cart, p]);
+                      localStorage.setItem(
+                        "cart",
+                        JSON.stringify([...cart, p])
+                      );
+                      toast.success("Item Added to Cart");
+                    }}
+                  >
                     Add to cart
                   </button>
                 </div>
